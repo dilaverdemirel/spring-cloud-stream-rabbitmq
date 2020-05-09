@@ -22,4 +22,4 @@ Or you can send manually a request for payment to payment service;
 curl -X POST "http://localhost:5000/payments" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"id\": \"payment-id\", \"price\": -1, \"quantity\": 1, \"stockItemId\": \"red-pen-1\"}"
 ```
 
-You can access detailed information about the repository on [address](http://aaa.com)
+You can access detailed information about the repository on [medium](https://medium.com/@dilaverdemirel/spring-cloud-stream-ve-rabbitmq-ile-microservices-mimaride-message-driven-i%CC%87leti%C5%9Fim-cc1941e31fdd)
