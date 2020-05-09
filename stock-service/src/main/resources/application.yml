@@ -1,0 +1,36 @@
+info:
+  app:
+    name: stock-service
+
+server:
+  port: ${PORT:5001}
+
+logging:
+  level:
+    com.dilaverdemirel: DEBUG
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        stockOperationInputChannel:
+          destination: stock-service.operation
+          group: stock-service-group
+          binder: local_rabbit
+      rabbit:
+        bindings:
+          stockOperationInputChannel:
+            consumer:
+              autoBindDlq: true
+              republishToDlq: true
+      binders:
+        local_rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 127.0.0.1
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: /
